@@ -85,9 +85,9 @@
           ]
         },
         {
-          "name": "secondview",
-          "pattern": "secondview",
-          "target": "secondview"
+          "name": "secondpage",
+          "pattern": "secondpage",
+          "target": "secondpage"
         }
       ],
       "targets": {
@@ -98,9 +98,9 @@
           "viewId": "sapui5app",
           "viewName": "sapui5app"
         },
-        "secondview": {
-          "viewId": "sapui5app",
-          "viewName": "sapui5app",
+        "secondpage": {
+          "viewId": "secondpage",
+          "viewName": "secondpage",
           "viewLevel": 2
         }
       }
