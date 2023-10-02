@@ -1,0 +1,25 @@
+<mvc:View controllerName="deloitte.training.sapui5ap.controller.sapui5app"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+
+
+
+        <VBox>
+        	<Button text="My Button" press="onPress" />
+            <core:Icon
+			src="sap-icon://accept"
+			class="size1"
+			color="#031E48" >
+			<core:layoutData>
+				<FlexItemData growFactor="1" />
+			</core:layoutData>
+		    </core:Icon>
+
+
+
+        </VBox>
+        
+    </Page>
+</mvc:View>
