@@ -16,6 +16,7 @@ sap.ui.define([
                 //this.getView().destroy();
                 var orouter = sap.ui.core.UIcomponent.getRouterFor(this);
                 orouter.navTo("secondpage")
+               
                 
             }
         });
