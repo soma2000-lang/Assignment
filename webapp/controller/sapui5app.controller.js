@@ -14,8 +14,8 @@ sap.ui.define([
             onPress: function(event)
             {
                 //this.getView().destroy();
-                var orouter = sap.ui.core.UIcomponent.getRouterFor(this);
-                orouter.navTo("secondpage")
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("secondpage")
                
                 
             }

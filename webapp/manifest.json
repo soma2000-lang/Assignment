@@ -1,7 +1,7 @@
 {
   "_version": "1.49.0",
   "sap.app": {
-    "id": "deloitte.test1.practiceproject2",
+    "id": "deloitte.training.sapui5ap",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-      "version": "1.11.0",
-      "toolsId": "365352ee-2ddd-48b8-8ccb-b05ae3f07c4c"
+      "version": "1.11.1",
+      "toolsId": "209718f5-3c8e-479d-8e4e-3b72c7601036"
     }
   },
   "sap.ui": {
@@ -35,7 +35,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.118.0",
+      "minUI5Version": "1.118.1",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -55,12 +55,12 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "deloitte.test1.practiceproject2.i18n.i18n"
+          "bundleName": "deloitte.training.sapui5ap.i18n.i18n"
         }
       },
-      "Products":{
+      "products": {
         "type": "sap.ui.model.json.JSONModel",
-        "uri": "model/products.json"
+        "uri":"model/products.json"
       }
     },
     "resources": {
@@ -75,7 +75,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "deloitte.test1.practiceproject2.view",
+        "viewPath": "deloitte.training.sapui5ap.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false

@@ -4,20 +4,20 @@
     xmlns:core="sap.ui.core">
     <Page id="page" title="{i18n>title}">
         <content />
-		<VBox>
+		
 		<Button 
             text="Go to Next Page"
             press="onPress"
             />
-        <core:Icon
+        <!-- <core:Icon
 			src="sap-icon://accept"
 			class="size1"
 			color="#031E48" >
 			<core:layoutData>
 				<FlexItemData growFactor="1" />
 			</core:layoutData>
-		</core:Icon>
-		</VBox>
+		</core:Icon> -->
+		
         
     </Page>
 </mvc:View>

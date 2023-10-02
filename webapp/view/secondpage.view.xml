@@ -1,12 +1,12 @@
-<mvc:View controllerName="deloitte.test1.practiceproject2.controller.newview"
+<mvc:View controllerName="deloitte.training.sapui5ap.controller.secondpage"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
     <Page id="page" title="{i18n>title}">
-        <Text text="I am on Second Page."/>
+        <!-- <Text text="I am on Second Page."/> -->
         <Table id="idProductsTable"
 		items="{
-			path: 'Products>/ProductCollection',
+			path: 'products>/ProductCollection'
 		}">
 		<columns>
 			<Column
@@ -23,9 +23,9 @@
 			<ColumnListItem vAlign="Middle">
 				<cells>
 				<ObjectIdentifier
-						title="{Products>ProductId}"/>
+						title="{products>ProductId}"/>
 					<Text
-						text="{Products>ProductName}" />
+						text="{products>ProductName}" />
 				</cells>
 			</ColumnListItem>
 		</items>
