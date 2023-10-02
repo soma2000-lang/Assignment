@@ -56,7 +56,10 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "deloitte.training.sapui5ap.i18n.i18n"
-        }
+        },
+        "products": {
+          "type": "sap.ui.json.JSONModel",
+          "uri":"model/products.json"
       }
     },
     "resources": {
