@@ -1,0 +1,12 @@
+transformers
+tqdm
+numpy
+pandas
+torch
+termcolor
+nltk
+sklearn
+matplotlib
+gensim
+torchtext
+string  
