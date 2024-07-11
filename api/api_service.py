@@ -1,8 +1,27 @@
-from fastapi import APIRouter, Response
-from app.models.request_models import 
-from app.services.weather_service import get_weather_by_city
+from typing import List
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import torch
 
-router = APIRouter()
+from models.RAG import RAG_pipeline
+from models.rating_predict import predict_with_model
+app = FastAPI()
+## Global request ID counter
+request_id_counter = 0
+
+class QueryRequest(BaseModel):
+    query: str
+
+class QueryResponse(BaseModel):
+    request_id: int
+    results: List[str]
+
+class ReviewRequest(BaseModel):
+    review: str
+
+class RatingResponse(BaseModel):
+    request_id: int
+    rating: float
 
 
 
@@ -18,7 +37,7 @@ async def predict_rating(request: ReviewRequest):
 async def get_answer(request: QueryRequest):
     global request_id_counter
     request_id_counter += 1
-    results = RAG_pipeline(request.query, corpus, get_embeddings, bm25, nonot5, sides, summarize_documents)
+    results = RAG_pipeline(request.query,texts, bm25, bm25)
     return QueryResponse(request_id=request_id_counter, results=results)
 
 if __name__ == "__main__":

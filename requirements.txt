@@ -14,3 +14,7 @@ uvicorn
 rank-bm25 
 openai==0.28
 faiss-cpu
+pydantic 
+fastapi
+uvicorn
+spacy
