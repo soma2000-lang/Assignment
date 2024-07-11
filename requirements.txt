@@ -5,8 +5,12 @@ pandas
 torch
 termcolor
 nltk
-sklearn
+scikit-learn
 matplotlib
 gensim
-torchtext
-string  
+string
+fastapi 
+uvicorn 
+rank-bm25 
+openai==0.28
+faiss-cpu
