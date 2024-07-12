@@ -18,3 +18,7 @@ pydantic
 fastapi
 uvicorn
 spacy
+pytest 
+httpx
+fastapi
+pydantic

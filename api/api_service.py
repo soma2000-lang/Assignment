@@ -5,8 +5,10 @@ import torch
 
 from models.RAG import RAG_pipeline
 from models.rating_predict import predict_with_model
+
 app = FastAPI()
-## Global request ID counter
+
+# Global request ID counter
 request_id_counter = 0
 
 class QueryRequest(BaseModel):
@@ -23,21 +25,20 @@ class RatingResponse(BaseModel):
     request_id: int
     rating: float
 
-
-
 @app.post("/predict_rating", response_model=RatingResponse)
 async def predict_rating(request: ReviewRequest):
     global request_id_counter
     request_id_counter += 1
-    # Dummy implementation for rating prediction
-    rating = len(request.review) % 5 + 1
+
+    rating = predict_with_model(request.review)
+
     return RatingResponse(request_id=request_id_counter, rating=rating)
 
 @app.post("/get_answer", response_model=QueryResponse)
 async def get_answer(request: QueryRequest):
     global request_id_counter
     request_id_counter += 1
-    results = RAG_pipeline(request.query,texts, bm25, bm25)
+    results = RAG_pipeline(request.query)
     return QueryResponse(request_id=request_id_counter, results=results)
 
 if __name__ == "__main__":
