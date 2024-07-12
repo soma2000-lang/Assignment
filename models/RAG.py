@@ -2,6 +2,7 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 import faiss
 from rank_bm25 import BM25Okapi
+import logging
 
 import pandas as pd
 from models.preprocess import preprocess_text
@@ -12,6 +13,7 @@ def summarize_texts(texts, bm25, n=5):
         bm25 = BM25Okapi(tokenized_sentences)
         summary = bm25.get_top_n(query.split(" "), tokenized_sentences, n=n)
         summaries.append(" ".join([" ".join(sent) for sent in summary]))
+
     return summaries
 
 
@@ -41,7 +43,7 @@ if __name__ == "__main__":
     df = data[
         ["reviews.text", "reviews.rating", "reviews.date", "name"]
     ]
-    data =preprocess_text(data)
+    data = preprocess_text(data)
     texts = df["reviews.text"]
     # Tokenize your documents
     tokenized_corpus = [doc.split(" ") for doc in texts]

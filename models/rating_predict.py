@@ -19,7 +19,7 @@ from sklearn.metrics import confusion_matrix
 from collections import Counter
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
-
+import logging
 
 from models.preprocess import preprocess_text
 
@@ -43,10 +43,12 @@ def normalize_predictions(pred):
     new_pred = [i if i <= 5 else 5 for i in pred]
     new_pred = [i if i >= 1 else 1 for i in new_pred]
     new_pred = [round(i) for i in new_pred]
+    logging.info("Normalizing predictions")
     return new_pred
 
 
 def predict_with_model(model, X_test_idf):
+    logging.info("Starting prediction with model.")
     idf_forest_test = normalize_predictions(random_forest_model.predict(X_test_idf))
     return idf_forest_test
 
@@ -57,7 +59,7 @@ if __name__ == "__main__":
     ).sample(500)
     data = preprocess_text(data)
     df = data[
-        ["reviews.text", "reviews.rating", "reviews.date", "name", "manufacturer"]
+        ["reviews.text", "reviews.rating", "reviews.date", "name"]
     ]
     print(df)  # getting the clean data
 
