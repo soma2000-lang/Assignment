@@ -54,24 +54,24 @@ to_be_removed = list(en_stop) + list(punctuation)
 # Preprocess text for transformers
 def preprocess_text(data, full_process=True):
         # Remove all the special characters
-        data = re.sub(r'\W', ' ', str(data))
+    data = re.sub(r'\W', ' ', str(data))
         # remove all single characters
-        data= re.sub(r'\s+[a-zA-Z]\s+', ' ', data)
+    data= re.sub(r'\s+[a-zA-Z]\s+', ' ', data)
         # Remove single characters from the start
-        data = re.sub(r'\^[a-zA-Z]\s+', ' ', data)
+    data = re.sub(r'\^[a-zA-Z]\s+', ' ', data)
         # Substituting multiple spaces with single space
-        data = re.sub(r'\s+', ' ', data, flags=re.I)
+    data = re.sub(r'\s+', ' ', data, flags=re.I)
         # Removing prefixed 'b'
-        data= re.sub(r'^b\s+', '', data)
+    data= re.sub(r'^b\s+', '', data)
         # Converting to Lowercase
-        data = data.lower()
-        if full_process:
+    data = data.lower()
+    if full_process:
             # Lemmatization
-            tokens = data.split()
-            tokens = [stemmer.lemmatize(word) for word in tokens]
-            tokens = [word for word in tokens if word not in en_stop]
-            tokens = [word for word in tokens if len(word) > 3]
-            data = ' '.join(tokens)
-        return data
+        tokens = data.split()
+        tokens = [stemmer.lemmatize(word) for word in tokens]
+        tokens = [word for word in tokens if word not in en_stop]
+        tokens = [word for word in tokens if len(word) > 3]
+        data = ' '.join(tokens)
+    return data
 data=preprocess_text(data)
 print(data)
