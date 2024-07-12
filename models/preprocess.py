@@ -39,7 +39,7 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
 
 path_files = pathlib.Path('./')
 
-data    = pd.read_csv('data/reviews_v1_hiring_task.csv', sep=',', encoding='latin-1').sample(500)
+data = pd.read_csv('data/reviews_v1_hiring_task.csv', sep=',', encoding='latin-1').sample(500)
 print(data.head())
 print(data.shape)
 Notkeep = [d for d in data.columns if d not in ['reviews.text','reviews.text','reviews.rating','manufacturer','reviews.date','name','id','brand','categories']]

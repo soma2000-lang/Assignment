@@ -3,14 +3,8 @@ import torch
 import faiss
 from rank_bm25 import BM25Okapi
 
-# Load the tokenizer and model
-tokenizer = AutoTokenizer.from_pretrained("google-bert/bert-base-uncased")
-model = AutoModel.from_pretrained("google-bert/bert-base-uncased")
-
-
-texts = df["reviews.text"]
-
-
+import pandas as pd
+from models.preprocess import preprocess_text
 def summarize_texts(texts, bm25, n=5):
     summaries = []
     for text in texts:
@@ -21,9 +15,7 @@ def summarize_texts(texts, bm25, n=5):
     return summaries
 
 
-# Tokenize your documents
-tokenized_corpus = [doc.split(" ") for doc in texts]
-bm25 = BM25Okapi(tokenized_corpus)
+
 
 
 # Function to retrieve documents
@@ -35,23 +27,28 @@ def retrieve_documents(query, bm25, n=10):
 
 
 def RAG_pipeline(query, texts, bm25, summarizer):
-    # Step 1: Embedding
-
-    # Step 2: Initial Retrieval
     initial_docs, scores = retrieve_documents(query, bm25)
-
-    # Step 4: Summarization
     summarized_docs = summarize_texts(texts, bm25)
-
     return summarized_docs
 
 
-# Example usage
-query = "What did users like about product AMAZON KINDLE"
-result = RAG_pipeline(query, texts, bm25, bm25)
-print(result)
+if __name__ == "__main__":
+    tokenizer = AutoTokenizer.from_pretrained("google-bert/bert-base-uncased")
+    model = AutoModel.from_pretrained("google-bert/bert-base-uncased")
+    data = pd.read_csv(
+        "data/reviews_v1_hiring_task.csv", sep=",", encoding="latin-1"
+    ).sample(500)
+    df = data[
+        ["reviews.text", "reviews.rating", "reviews.date", "name"]
+    ]
+    data =preprocess_text(data)
+    texts = df["reviews.text"]
+    # Tokenize your documents
+    tokenized_corpus = [doc.split(" ") for doc in texts]
+    bm25 = BM25Okapi(tokenized_corpus)
+    query = "What did users like about product AMAZON KINDLE"
+    result = RAG_pipeline(query, texts, bm25, bm25)
+    print(result)
 
 
-query = "What did users like about product AMAZON KINDLE"
-result = RAG_pipeline(query, texts, bm25, bm25)
-print(result)
+  
