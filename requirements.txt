@@ -22,3 +22,8 @@ pytest
 httpx
 fastapi
 pydantic
+py-spy
+starlette==0.37.2 
+sqlalchemy 
+aiomysql 
+databases

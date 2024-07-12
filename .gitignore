@@ -1,0 +1,6 @@
+.idea
+.vscode
+virtualenv_name/
+README.md
+Dockerfile
+
