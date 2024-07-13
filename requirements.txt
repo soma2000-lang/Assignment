@@ -8,7 +8,6 @@ nltk
 scikit-learn
 matplotlib
 gensim
-string
 fastapi 
 uvicorn 
 rank-bm25 

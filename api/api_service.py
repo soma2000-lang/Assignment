@@ -1,8 +1,11 @@
 from typing import List
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
 import time
 import logging
+from fastapi import FastAPI
+from contextlib import asynccontextmanager
+
 from sqlalchemy import create_engine, Column, Integer, String, Float, TIMESTAMP
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -12,12 +15,14 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from models.RAG import RAG_pipeline
 from models.rating_predict import predict_with_model
 
-DATABASE_URL = "mysql+aiomysql://user:password@localhost/fastapi_metrics"
+DATABASE_URL = "mysql+aiomysql://root:password@localhost/fastapi_metrics"
+# my password is password only
 
-# SQLAlchemy setup
+# setting up SQLAlchemy
 Base = declarative_base()
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
 
 class RequestMetrics(Base):
     __tablename__ = "request_metrics"
@@ -26,18 +31,16 @@ class RequestMetrics(Base):
     endpoint = Column(String(255), index=True)
     response_time = Column(Float)
     timestamp = Column(TIMESTAMP)
+    
 
 Base.metadata.create_all(bind=engine)
 
-# FastAPI and databases setup
-app = FastAPI()
-database = Database(DATABASE_URL)
 
-# Global request ID counter and request count
+
+
 request_id_counter = 0
 request_count = 0
 request_start_time = time.time()
-
 class QueryRequest(BaseModel):
     query: str
 
@@ -52,13 +55,17 @@ class RatingResponse(BaseModel):
     request_id: int
     rating: float
 
-@app.on_event("startup")
-async def startup():
-    await database.connect()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await database.connect() 
+    try:
+        yield  
+    finally:
+        await database.disconnect()
+        
 
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
+app = FastAPI(lifespan=lifespan)
+database = Database(DATABASE_URL)
 
 # Middleware to measure response time and log to database
 class MeasureResponseTimeMiddleware(BaseHTTPMiddleware):
