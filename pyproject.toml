@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "assignment"
+version = "0.1.0"
+description = "Developing a model with feature engineering, training it, and developing a RAG pipeline dealing with multilingual queries using a small dataset and vector databases like FAISS."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Somasree Majumder", email = "bishnupadamajumder32@gmail.com" }
+]
+dependencies = [
+    "transformers==4.11.3",
+    "tqdm==4.62.3",
+    "numpy==1.21.2",
+    "pandas==1.3.3",
+    "torch==1.9.0",
+    "termcolor==1.1.0",
+    "nltk==3.6.3",
+    "scikit-learn==0.24.2",
+    "matplotlib==3.4.3",
+    "gensim==4.0.1",
+    "fastapi==0.68.1",
+    "uvicorn==0.15.0",
+    "rank-bm25==0.2.1",
+    "openai==0.28.0",
+    "faiss-cpu==1.7.0",
+    "pydantic==1.8.2",
+    "spacy==3.1.2",
+    "pytest==6.2.4",
+    "httpx==0.19.0",
+    "py-spy==0.3.7",
+    "starlette==0.14.2",
+    "sqlalchemy==1.4.23",
+    "aiomysql==0.0.21",
+    "databases==0.4.3"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["api", "models"]
+
+[tool.setuptools.package-data]
+"api" = ["*.py"]
+"models" = ["*.py"]
