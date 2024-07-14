@@ -16,3 +16,8 @@ python3 models/rating_predict.py
 ```
 
 Data Requirements: Transformers often require large amounts of data for effective training. Smaller datasets can lead to overfitting or suboptimal performance.Fixed Sequence Length: Transformers rely on fixed-size input sequences due to their positional embeddings. Handling variable-length inputs efficiently can be a challenge.Lack of Causality in Standard Attention: The standard self-attention mechanism used in Transformers doesn’t inherently capture causality. 
+
+![alt text](image.png)
+
+failed expt 
+![alt text](image.png)
