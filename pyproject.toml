@@ -33,6 +33,7 @@ dependencies = [
     "httpx==0.19.0",
     "py-spy==0.3.7",
     "starlette==0.14.2",
+    "langchain"
     "sqlalchemy==1.4.23",
     "aiomysql==0.0.21",
     "databases==0.4.3"

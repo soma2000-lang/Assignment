@@ -12,6 +12,7 @@ fastapi
 uvicorn 
 rank-bm25 
 openai==0.28
+langchain
 faiss-cpu
 pydantic 
 fastapi

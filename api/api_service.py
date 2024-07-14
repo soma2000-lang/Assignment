@@ -29,13 +29,6 @@ origins = [
     "http://localhost:8000",
 ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 class RequestMetrics(Base):
@@ -45,12 +38,9 @@ class RequestMetrics(Base):
     endpoint = Column(String(255), index=True)
     response_time = Column(Float)
     timestamp = Column(TIMESTAMP)
-    
+
 
 Base.metadata.create_all(bind=engine)
-
-
-
 
 request_id_counter = 0
 request_count = 0
@@ -80,6 +70,14 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 database = Database(DATABASE_URL)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Middleware to measure response time and log to database
 class MeasureResponseTimeMiddleware(BaseHTTPMiddleware):
@@ -98,7 +96,8 @@ class MeasureResponseTimeMiddleware(BaseHTTPMiddleware):
 
         logging.info(f"Response time for {request.url.path}: {process_time} seconds")
         return response
-
+    
+    
 app.add_middleware(MeasureResponseTimeMiddleware)
 
 # Background task to log requests per second
