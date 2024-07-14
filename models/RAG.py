@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 def summarize_texts(texts, bm25, n=5):
     """
     Summarize the given texts using BM25.
-    
+
     Args:
     texts (list of str): List of texts to summarize.
     bm25 (BM25Okapi): BM25 object for retrieval.

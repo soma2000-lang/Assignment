@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 tqdm.pandas()
 
-from transformers import RobertaModel, RobertaTokenizer, get_linear_schedule_with_warmup, AutoTokenizer, AutoModel
+from transformers import RobertaModel, RobertaTokenizer, AutoTokenizer, AutoModel
 
 nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
@@ -45,9 +45,8 @@ nltk.download('stopwords')
 en_stop       = set(nltk.corpus.stopwords.words('english'))
 to_be_removed = list(en_stop) + list(punctuation)
 
-# Preprocess text for transformers
-def preprocess_text(data, full_process=True):
-        # Remove all the special characters
+# Preprocess text 
+def preprocess_text(data, full_process=True): # Remove all the special characters
     data = re.sub(r'\W', ' ', str(data))
         # remove all single characters
     data = re.sub(r'\s+[a-zA-Z]\s+', ' ', data)

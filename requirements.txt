@@ -15,6 +15,7 @@ openai==0.28
 faiss-cpu
 pydantic 
 fastapi
+asyncio
 uvicorn
 spacy
 pytest 

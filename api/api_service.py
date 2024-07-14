@@ -3,7 +3,9 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 import time
 import logging
+import asyncio
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from sqlalchemy import create_engine, Column, Integer, String, Float, TIMESTAMP
@@ -22,6 +24,18 @@ DATABASE_URL = "mysql+aiomysql://root:password@localhost/fastapi_metrics"
 Base = declarative_base()
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class RequestMetrics(Base):
@@ -98,10 +112,14 @@ async def log_rps():
         request_count = 0
         request_start_time = time.time()
 
-@app.on_event("startup")
-async def startup_event():
-    import asyncio
+async def lifespan(app: FastAPI):
+    # Startup code
     asyncio.create_task(log_rps())
+    yield
+    # Shutdown code
+
+app.router.lifespan = lifespan
+    
 
 @app.post("/predict_rating", response_model=RatingResponse)
 async def predict_rating(request: ReviewRequest):
