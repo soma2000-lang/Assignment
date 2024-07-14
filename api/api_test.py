@@ -21,7 +21,7 @@ def override_predict_with_model(monkeypatch):
 
 @pytest.fixture
 def override_RAG_pipeline(monkeypatch):
-    def mock_RAG_pipeline(query, texts, bm25_1, bm25_2):
+    def mock_RAG_pipeline(query, texts, bm25, bm25):
         return ["Mocked answer"]
     monkeypatch.setattr("models.RAG.RAG_pipeline", mock_RAG_pipeline)
 
