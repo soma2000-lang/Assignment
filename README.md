@@ -47,6 +47,7 @@ Dont have the access to the api keys of the  claude ,open ai thats why could not
 - usage of external data and train on document level data, finetuning on long coherent sequences  helps model to learn and correlate to different piece of knowledge
 - Dont have the access to the api keys of the  claude ,open ai thats why could not use them
 - Try  with resolve the cuda issue here and achieve a better accuracy
+- Dont have enough GPU
 
 ## FURTHUR ANALYSIS RAG PIPELINE
 
