@@ -55,19 +55,22 @@ compressed into context embeddings E, which are combined into an
 instruction 𝐼𝑞,
 
 
-## RAG PIPELINE
+## RAG PIPELINE Challenges faced-  
 
-- Challenges afced- the the vocabulary of the under represented Indian language
-Fertility=Avrage nno of tokens per word
-Gigh fertility =More memory consumption and More decoding time
-Limit on the longeest processable sequence
-Romanized Representation
-High fertility or Data loss in case of under represented vocab
-poor represenattion quality
-Voacb extension  requires a lot of pretaining
+- The vocabulary of the under represented Indian language
+- Fertility=Average no of tokens per word
+- High fertility = More memory consumption and More decoding time
 
-In case Romanized Representation of data  like "Ye batti kam nahi karti hae" we need
+- High fertility or Data loss in case of under represented vocab
+- poor represenattion quality
+- Vocab extension  requires a lot of pretaining
 
+**In case Romanized Representation of data  like "Ye batti kam nahi karti hae" we need**
+
+
+- High fertility or Data loss in case of under represented vocab
+- poor represenattion quality
+- Vocab extension  requires a lot of pretaining
 -  Natural Transliteration
 -  Fixed Romanized Schemes
  - In Research till now it has been found out that Romanized representations are better alligned to English than native script representations
