@@ -63,6 +63,15 @@ def RAG_pipeline(query, texts, bm25, summarizer):
     summarized_docs = summarizer(initial_docs, bm25)
     return summarized_docs
 
+def analyze_reviews(texts, positive_keywords=["good", "great", "excellent", "positive", "satisfied"], negative_keywords=["bad", "poor", "terrible", "negative", "unsatisfied"]):
+    positive_reviews = 0
+    for review in texts:
+        if any(word in review.lower() for word in positive_keywords):
+            positive_reviews += 1
+    total_reviews = len(texts)
+    positive_percentage = (positive_reviews / total_reviews) * 100 if total_reviews > 0 else 0
+    return positive_percentage
+
 if __name__ == "__main__":
     # Load tokenizer and model
     tokenizer = AutoTokenizer.from_pretrained("google-bert/bert-base-uncased")

@@ -81,6 +81,16 @@ instruction 𝐼𝑞,
 -  Natural Transliteration
 -  Fixed Romanized Schemes
  - In Research till now it has been found out that Romanized representations are better alligned to English than native script representations
+  
+  ** Dealing with multilingual data**
+
+  - Would have used Cohere multilingual embeddings and Anthropic Claude 3  to deal with multilingual data
+  - If received a 100 K untagged data ,used the untagged data to pre-train a transformer-based model.
+  - Fine-tune the pre-trained model on the small tagged dataset.
+  - Pedict labels for the untagged data using the fine-tuned model.
+  - Fine-tune the model further using these pseudo-labeled data.
+  - Continuously evaluate the model's performance on a validation set.
+  
 
 
 ## DISCLAIMER
