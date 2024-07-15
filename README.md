@@ -95,5 +95,5 @@ instruction 𝐼𝑞,
 
 ## DISCLAIMER
 
-- All the failed as well as working notebooks has been kept in the notebook folder
+- All the failed as well as working notebooks has been kept in the notebook folder and failed expt folder
 
