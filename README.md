@@ -21,9 +21,15 @@ Running the docker image
 sudo docker build .
 
 ```
-Models used Descion Tree Regrssor ,Random Forest Regrssor
-Tranformers- bert-uncased,AutoToeinzer and Auto Model
-Data Requirements: Transformers often require large amounts of data for effective training. Smaller datasets can lead to overfitting or suboptimal performance.Fixed Sequence Length: Transformers rely on fixed-size input sequences due to their positional embeddings. Handling variable-length inputs efficiently can be a challenge.Lack of Causality in Standard Attention: The standard self-attention mechanism used in Transformers doesn’t inherently capture causality. 
+
+## FOLDER STRUCTURE
+
+![alt text](image-2.png)
+
+- Models used Descion Tree Regrssor ,Random Forest Regrssor,Logistic Regression
+- Tranformers- bert-uncased,AutoToeinzer and Auto Model
+
+- Data Requirements: Transformers often require large amounts of data for effective training. Smaller datasets can lead to overfitting or suboptimal performance.Fixed Sequence Length: Transformers rely on fixed-size input sequences due to their positional embeddings. Handling variable-length inputs efficiently can be a challenge.Lack of Causality in Standard Attention: The standard self-attention mechanism used in Transformers doesn’t inherently capture causality. 
 
 ![alt text](image-1.png)
 
@@ -74,4 +80,9 @@ instruction 𝐼𝑞,
 -  Natural Transliteration
 -  Fixed Romanized Schemes
  - In Research till now it has been found out that Romanized representations are better alligned to English than native script representations
+
+
+## DISCLAIMER
+
+- All the failed as well as working notebooks has been kept in the notebook folder
 
