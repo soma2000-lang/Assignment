@@ -36,6 +36,7 @@ sudo docker build .
 failed expt 
 ![alt text](image.png)
 
+**Highest accuracy achieved on test data 81.25%*
 
 Since this is an small experiment hence semantic caching in RAG is  not required.
 
