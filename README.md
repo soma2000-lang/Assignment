@@ -24,17 +24,17 @@ sudo docker build .
 
 ## FOLDER STRUCTURE
 
-![alt text](image-2.png)
+![alt text](assets/image-2.png)
 
 - Models used Descion Tree Regrssor ,Random Forest Regrssor,Logistic Regression
 - Tranformers- bert-uncased,AutoToeinzer and Auto Model
 
 - Data Requirements: Transformers often require large amounts of data for effective training. Smaller datasets can lead to overfitting or suboptimal performance.Fixed Sequence Length: Transformers rely on fixed-size input sequences due to their positional embeddings. Handling variable-length inputs efficiently can be a challenge.Lack of Causality in Standard Attention: The standard self-attention mechanism used in Transformers doesn’t inherently capture causality. 
 
-![alt text](image-1.png)
+![alt text](assets/image-1.png)
 
 failed expt 
-![alt text](image.png)
+![alt text](assets/image.png)
 
 **Highest accuracy achieved on test data 81.25%*
 
