@@ -33,22 +33,13 @@ sudo docker build .
 
 ![alt text](assets/image-1.png)
 
-failed expt 
-![alt text](assets/image.png)
 
 **Highest accuracy achieved on test data 81.25%*
 
 Since this is an small experiment hence semantic caching in RAG is  not required.
 
-Dont have the access to the api keys of the  claude ,open ai thats why could not use them
 
-## what would I have done if given more time 
 
-- Try to resolve this issue adnd deploy the application in some microservices.
-- usage of external data and train on document level data, finetuning on long coherent sequences  helps model to learn and correlate to different piece of knowledge
-- Dont have the access to the api keys of the  claude ,open ai thats why could not use them
-- Try  with resolve the cuda issue here and achieve a better accuracy
-- Dont have enough GPU
 
 ## FURTHUR ANALYSIS RAG PIPELINE
 
@@ -63,15 +54,6 @@ compressed into context embeddings E, which are combined into an
 instruction 𝐼𝑞,
 
 
-## RAG PIPELINE Challenges faced-  
-
-- The vocabulary of the under represented Indian language
-- Fertility=Average no of tokens per word
-- High fertility = More memory consumption and More decoding time
-
-- High fertility or Data loss in case of under represented vocab
-- poor represenattion quality
-- Vocab extension  requires a lot of pretaining
 
 **In case Romanized Representation of data  like "Ye batti kam nahi karti hae" we need**
 
@@ -95,7 +77,4 @@ instruction 𝐼𝑞,
 
 For setting up the RAG pipeline I have used all the techniques used in the paper https://arxiv.org/abs/2407.01219 according to my specified data
 
-## DISCLAIMER
-
-- All the failed as well as working notebooks has been kept in the notebook folder and failed expt folder
 
