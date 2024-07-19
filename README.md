@@ -26,8 +26,7 @@ sudo docker build .
 
 ![alt text](assets/image-2.png)
 
-- Models used Descion Tree Regrssor ,Random Forest Regrssor,Logistic Regression
-- Tranformers- bert-uncased,AutoToeinzer and Auto Model
+- Tranformers- bert-uncased,AutoTokeinzer and Auto Model
 
 - Data Requirements: Transformers often require large amounts of data for effective training. Smaller datasets can lead to overfitting or suboptimal performance.Fixed Sequence Length: Transformers rely on fixed-size input sequences due to their positional embeddings. Handling variable-length inputs efficiently can be a challenge.Lack of Causality in Standard Attention: The standard self-attention mechanism used in Transformers doesn’t inherently capture causality. 
 
