@@ -74,6 +74,6 @@ instruction 𝐼𝑞,
   - Continuously evaluate the model's performance on a validation set.
 
 
-For setting up the RAG pipeline I have used all the techniques used in the paper https://arxiv.org/abs/2407.01219 according to my specified data
+For setting up the RAG pipeline I have used suitable  techniques used in the paper https://arxiv.org/abs/2407.01219 according to my specified data
 
 
